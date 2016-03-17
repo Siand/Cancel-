@@ -1,0 +1,104 @@
+--- CANCELLATION PREDICTION ---
+
+I) INTERVALS
+
+CHANGING REWARD INTERVALS
+0) 	Reward: from 2 to 2
+	Weight: from 5 to 5
+	Number: from 1 to 1
+	Error: 31,7%
+
+1) 	Reward: from 3 to 3
+	Weight: from 5 to 5
+	Number: from 1 to 1
+	Error: 32.5%
+
+2)	Reward: from 5 to 5
+	Weight: from 5 to 5
+	Number: from 1 to 1
+	Error: 32,67%
+
+3) 	Reward: from 10 to 10
+	Weight: from 5 to 5
+	Number: from 1 to 1
+	Error: 33,86%
+
+
+4) 	Reward: from 20 to 20
+	Weight: from 5 to 5
+	Number: from 1 to 1
+	Error: 34,94%
+5)
+	Reward: from 30 to 30
+	Weight: from 5 to 5
+	Number: from 1 to 1
+	Error: 34,84%
+
+6)
+	Reward: from 40 to 40
+	Weight: from 5 to 5
+	Number: from 1 to 1
+	Error: 35,52%
+
+Conclusion: the best intervals for reward are get by parting the values from 2 to 2.( [0,2), [2,4) etc .)
+
+CHANGING WEIGHT INTERVALS
+0)  Reward: from 2 to 2
+	Weight: from 10 to 10
+	Number: from 1 to 1
+	Error: 32,85%
+
+1)	Reward: from 2 to 2
+	Weight: from 3 to 3
+	Number: from 1 to 1
+	Error: 32,32%
+
+2)  Reward: from 2 to 2
+	Weight: from 2 to 2
+	Number: from 1 to 1
+	Error: 31,65%
+
+3)  Reward: from 2 to 2
+	Weight: from 1 to 1
+	Number: from 1 to 1
+	Error: 31,75%
+
+Conclusion: the best intervals for weight -> from 2 to 2 ([0,2), [2,4) etc )
+
+CHANGING THE INTERVALS FOR THE TOTAL NUMBER OF ITEMS
+0)  Reward: from 2 to 2
+	Weight: from 2 to 2
+	Number: from 1 to 1
+	Error: 31,64%
+
+1)  Reward: from 2 to 2
+	Weight: from 2 to 2
+	Number: from 3 to 3
+	Error: 32,76% 
+
+2) 	Reward: from 2 to 2
+	Weight: from 2 to 2
+	Number: from 5 to 5
+	Error: 33,09%
+
+Conclusion: the best intervals for the total number of items -> from 1 to 1 ([0,1), [1,2) etc )
+
+FINAL INTERVALS
+	Reward: from 2 to 2
+	Weight: from 2 to 2
+	Number: from 1 to 1
+	Error: 31,64%
+	Classifier: pYes * 0.5 > pNo
+
+
+
+II) CLASSIFIER
+Regarding the classifier, I have noticed that multiplying the probability of cancelled jobs by 0.5 leads to a smaller percentage of errors. This might come down to the fact that there are more not cancelled jobs than cancelled and thus the probability of jobs being cancelled should be quite small. Thus, making this percentage (the valiable pYes) even smaller (by multiplying it by 0.5) would make the algorithm more efficient.
+
+On the other hand, mutiplying it by a smaller number than 0.5 would make the percentage og errors even lower but it will increase the errors of type "false instead of true" too much. That is to say, it will show that almost every jobs is NOT going to be cancelled, so it will be quite inaccurate.
+As a result, 0.5 would be the most suitable as it will keep a balance between the 2 types of errors.
+
+1) pYes > pNo
+	Error: 37,67 %
+2) pYes * 0.5 > pNo
+	Error: 31,67 %
